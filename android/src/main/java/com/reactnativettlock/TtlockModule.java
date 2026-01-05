@@ -134,7 +134,7 @@ public class TtlockModule extends ReactContextBaseJavaModule {
                     for (int i=0;i<permissions.size();i++) {
                         String permission = permissions.getString(i);
                         int grantResult = grantResults.getInt(i);
-                        if (Manifest.permission.ACCESS_FINE_LOCATION.equals(permissions[i]) && grantResults[i] == PackageManager.PERMISSION_GRANTED) {
+                        if (Manifest.permission.ACCESS_FINE_LOCATION.equals(permission) && grantResult == PackageManager.PERMISSION_GRANTED) {
                             // permission was granted, yay! Do the
                             // contacts-related task you need to do.
                             if (scanGateway) {
