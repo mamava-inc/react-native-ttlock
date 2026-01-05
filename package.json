@@ -124,6 +124,7 @@
     "trailingComma": "es5",
     "useTabs": false
   },
+  "browserslist": {},
   "@react-native-community/bob": {
     "source": "src",
     "output": "lib",
