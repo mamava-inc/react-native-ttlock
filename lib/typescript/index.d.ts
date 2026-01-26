@@ -1,6 +1,7 @@
 import type { ScanGatewayModal, ScanLockModal, InitGatewayParam, CycleDateParam, ScanWifiModal, InitGatewayModal, LockVersion, ScanRemoteKeyModal, ScanDoorSensorModal, DeviceSystemModal, ScanWirelessKeypadModal, WifiLockServerInfo } from './types';
 declare class TtWirelessKeypad {
     static defaultCallback: () => void;
+    static initTtlockBle(callback: (bluetoothState: BluetoothState) => void): void;
     static startScan(callback: ((scanModal: ScanWirelessKeypadModal) => void)): void;
     static stopScan(): void;
     static init(mac: string, lockMac: string, success: ((electricQuantity: number, wirelessKeypadFeatureValue: string) => void), fail: null | ((errorCode: RemoteKeyPadErrorCode, description: string) => void)): void;
@@ -387,8 +388,8 @@ declare enum BluetoothState {
     Resetting = 1,
     Unsupported = 2,
     Unauthorized = 3,
-    On = 4,
-    Off = 5
+    Off = 4,
+    On = 5
 }
 declare enum LockFunction {
     Passcode = 0,
