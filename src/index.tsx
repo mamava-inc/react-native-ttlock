@@ -1050,8 +1050,8 @@ enum BluetoothState {
   Resetting = 1,
   Unsupported = 2,
   Unauthorized = 3,
-  Off = 4,
-  On = 5,
+  On = 4,
+  Off = 5,
 }
 
 enum LockFunction {
