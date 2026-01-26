@@ -39,14 +39,7 @@ RCT_EXPORT_MODULE()
 }
 
 - (instancetype)init{
-    if (self = [super init]) {
-//        __weak Ttlock *weakSelf = self;
-        [TTLock setupBluetooth:^(TTBluetoothState state) {
-//            if (isAddListenBluetoothState) {
-//                [weakSelf sendEventWithName:EVENT_BLUETOOTH_STATE body:@(state)];
-//            }
-        }];
-    }
+    if (self = [super init]) { }
     return self;
 }
 
@@ -74,6 +67,13 @@ RCT_EXPORT_MODULE()
 //    if ([eventName isEqualToString:EVENT_BLUETOOTH_STATE]) {
 //        isAddListenBluetoothState = true;
 //    }
+}
+
+RCT_EXPORT_METHOD(initTtlockBle:(RCTResponseSenderBlock)callbackBlock)
+{
+     [TTLock setupBluetooth:^(TTBluetoothState bluetoothState) {
+         [Ttlock reseponseSuccess:@(bluetoothState) success:callbackBlock];
+     }];
 }
 
 RCT_EXPORT_METHOD(getBluetoothState:(RCTResponseSenderBlock)callbackBlock)

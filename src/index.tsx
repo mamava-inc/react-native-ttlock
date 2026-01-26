@@ -231,6 +231,11 @@ class Ttlock {
 
   static defaultCallback = function () { };
 
+  static initTtlockBle(callback: (bluetoothState: BluetoothState) => void) {
+    callback = callback || this.defaultCallback;
+    ttLockModule.initTtlockBle(callback);
+  }
+
   /**
    * Scan for nearby Bluetooth locks
    * @param callback  The Callback will be executed multiple times if there is a Bluetooth lock nearby
@@ -1045,8 +1050,8 @@ enum BluetoothState {
   Resetting = 1,
   Unsupported = 2,
   Unauthorized = 3,
-  On = 4,
-  Off = 5
+  Off = 4,
+  On = 5,
 }
 
 enum LockFunction {
